@@ -12,7 +12,7 @@ namespace TaskManager.Domain.Entites
 
         public int TaskId { get; set; }
         public virtual Task Task { get; set; }
-        public string? CreatedById { get; set; }
+        public string CreatedById { get; set; }
         public DateTime CreatedAt { get; set; }
 
         public virtual User CreatedBy { get; set; }

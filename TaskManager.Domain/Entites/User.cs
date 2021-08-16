@@ -10,7 +10,7 @@ namespace TaskManager.Domain.Entites
     {
         public string Name { get; set; }
         public string Surname { get; set; }
-        public string? CreatedById { get; set; }
+        public string CreatedById { get; set; }
         public DateTime CreatedAt { get; set; }
         public int OrganizationId { get; set; }
         public virtual Organization Organization { get; set; }

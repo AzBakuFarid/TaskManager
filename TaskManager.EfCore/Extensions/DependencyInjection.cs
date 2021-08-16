@@ -26,10 +26,7 @@ namespace TaskManager.EfCore.Extensions
             {
                 options.Password.RequiredLength = 6;
                 options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireLowercase = false;
                 options.Password.RequireUppercase = false;
-
-
             }).AddEntityFrameworkStores<AppDbContext>();
 
             return services;
