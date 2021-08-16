@@ -1,0 +1,2 @@
+tapşırıqda DB-ləri fayl olaraq attach etməli olduğum yazılmışdı.. Ona görə faylları da yükləyirəm.. Amma App-in işləməsi üçün onlara ehtiyac yoxdur.
+TaskManager.Web proyektinin olduğu directory-dən migrasiya edib database update olunsa lazım olan hər şeyi özü yaradacaq
