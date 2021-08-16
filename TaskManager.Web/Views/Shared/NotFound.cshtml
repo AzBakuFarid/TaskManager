@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "404 Error";
+    string errorMessage = ViewData["ErrorMessage"]?.ToString() ?? "The looked for resource is not found";
+}﻿
+<div class=" container text-center background-image-css" style="background-image:url('/images/404.jpg');">
+    <h3 class="text-danger">@errorMessage</h3>
+</div>

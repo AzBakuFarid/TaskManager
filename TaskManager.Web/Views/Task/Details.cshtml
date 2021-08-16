@@ -1,0 +1,49 @@
+﻿@model TaskDetailsModel
+@{
+    ViewData["Title"] = "Task details";
+}
+    <div class="container">
+        <h4 class="text-center">@Model.Title  </h4>
+        <p class="text-center"><small>totally assigned to @Model.AssignedUsers.Count() users</small></p>
+        <p>
+            <a asp-controller="task" asp-action="ChangeAssigne" asp-route-id="@Model.Id" class=" btn btn-success">Go to assigne management page</a>
+        </p>
+    </div>
+
+<div class="row">
+    <div class="col-md-8">
+        <h4 class="text-center">Task details</h4>
+        <div class="row">
+            <div class="col-md-3"> <label asp-for="Description" class="font-weight-bold"></label> </div>
+            <div class="col-md-9"><span>@Model.Description</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> <label asp-for="CreatedBy" class="font-weight-bold"></label> </div>
+            <div class="col-md-9"><span>@Model.CreatedBy</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> <label asp-for="CreatedAt" class="font-weight-bold"></label> </div>
+            <div class="col-md-9"><span>@Model.CreatedAt</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> <label asp-for="Deadline" class="font-weight-bold"></label> </div>
+            <div class="col-md-9"><span>@Model.Deadline</span></div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"> <label asp-for="Status" class="font-weight-bold"></label> </div>
+            <div class="col-md-9"><span>@Model.Status</span></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-center">Users whom task assigned</h4>
+
+        @foreach (var user in Model.AssignedUsers)
+        {
+            <p>
+            <a asp-controller="user" asp-action="details" asp-route-id="@user.Id" class=" btn btn-link">@user.Username </a>
+            <small>assigned by @user.AssignedBy on @user.AssignedAt</small>
+            </p>
+        }
+    </div>
+    <span></span>
+</div>

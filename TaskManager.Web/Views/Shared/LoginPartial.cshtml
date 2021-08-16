@@ -1,0 +1,24 @@
+﻿@inject SignInManager<User> SignInManager
+<ul class="navbar-nav ml-auto">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="user" asp-action="details" asp-route-id="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value">
+                @User.Identity.Name
+            </a>
+        </li>
+        <li class="nav-item">
+            <form style="display:inline" asp-controller="user" asp-action="logout">
+                <button class="btn btn-link nav-link btn-logout" type="submit">Logout </button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="user" asp-action="Login">
+                Log in
+            </a>
+        </li>
+    }
+</ul>

@@ -1,0 +1,65 @@
+﻿@model OrgProfileCreateData
+
+@{
+    ViewData["Title"] = "Sign up";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2 ">
+        <h1 class="text-center mb-3">Sign Up here</h1>
+
+        <form asp-action="signup" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h4>Organization data</h4>
+                    <div class="form-group">
+                        <label asp-for="OrgName" class="form-label"></label>
+                        <input asp-for="OrgName" class="form-control">
+                        <span asp-validation-for="OrgName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OrgAddress" class="form-label"></label>
+                        <input asp-for="OrgAddress" class="form-control">
+                        <span asp-validation-for="OrgAddress" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="OrgPhone" class="form-label"></label>
+                        <input asp-for="OrgPhone" class="form-control">
+                        <span asp-validation-for="OrgPhone" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="col-md-6">
+                    <h4>User data</h4>
+
+                    <div class="form-group">
+                        <label asp-for="Username" class="form-label"></label>
+                        <input asp-for="Username" class="form-control">
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control">
+                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 ">Sign up</button>
+            </div>
+
+        </form>
+     
+    </div>
+</div>

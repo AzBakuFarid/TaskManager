@@ -1,0 +1,7 @@
+﻿@{
+    ViewData["Title"] = "Error";
+    string errorMessage = ViewData["ErrorMessage"]?.ToString() ?? "Ooops... Something went wrong during the last operation.. We are working on it";
+}﻿
+    <div class=" container text-center background-image-css" style="background-image:url('/images/500.jpg');">
+        <h3 class="text-danger">@errorMessage</h3>
+    </div>

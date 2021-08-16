@@ -1,0 +1,60 @@
+﻿@model TaskChangeAssigneViewModel
+
+@{
+    ViewData["Title"] = "Task management";
+}
+
+<h1 class="text-center">Assigne/remove tasks</h1>
+
+
+<form method="post">
+    <input type="hidden" asp-for="TaskId" />
+    <div class="row">
+
+        <div class="col-md-4 offset-1">
+            @if (Model.NotAssignedUsers.Count() > 0)
+            {
+                @for (int i = 0; i < Model.NotAssignedUsers.Count(); i++)
+                {
+                    <div class="form-check m-1">
+                        <input type="hidden" asp-for="@Model.NotAssignedUsers[i].Id" />
+                        <input asp-for="@Model.NotAssignedUsers[i].IsSelected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model.NotAssignedUsers[i].IsSelected">
+                            @Model.NotAssignedUsers[i].Username
+                        </label>
+                    </div>
+                }
+                <hr />
+
+                <button type="submit" asp-action="adduser" class="btn btn-primary">Assigne</button>
+            }
+            else
+            {
+                <h4>There is not a user in your organization or all of them are assigned to the task</h4>
+                <a asp-controller="user" asp-action="create" class="btn btn-link">create new user <small> (appropirate rights needed)</small></a>
+            }
+        </div>
+        <div class="col-md-4 offset-1">
+            @if (Model.AssignedUsers.Count() > 0)
+            {
+                @for (int i = 0; i < Model.AssignedUsers.Count(); i++)
+                {
+                    <div class="form-check m-1">
+                        <input type="hidden" asp-for="@Model.AssignedUsers[i].Id" />
+                        <input asp-for="@Model.AssignedUsers[i].IsSelected" class="form-check-input" />
+                        <label class="form-check-label" asp-for="@Model.AssignedUsers[i].IsSelected">
+                            @Model.AssignedUsers[i].Username
+                        </label>
+                    </div>
+                }
+                <hr />
+
+                <button type="submit" asp-action="removeuser" class="btn btn-primary">Remove</button>
+            }
+            else
+            {
+                <h4>There is not a user assigned to the task</h4>
+            }
+        </div>
+    </div>
+</form>
